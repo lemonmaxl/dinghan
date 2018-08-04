@@ -213,26 +213,63 @@ class Index extends Backend
         $data = $this->request->post();
         unset($data['row']);
         //根据第一规格组织数据
-        if ( !empty($data['attrk1']) && !isset($data['attrk2']) ) {
-            $k = explode('-', $data['attrk1'][0])[1];
-            for ($i=0; $i <count($data['attrv1']) ; $i++) { 
-                if ($data['attrv1'][$i] != '') {
-                    return ['k'=>$k , 'v'=>$data['attrv1']];
-                }
-            }
-        }elseif(!empty($data['attrk1']) && !empty($data['attrk2']) ){
-            $k = explode('-', $data['attrk1'][0])[1];
-            $k2 = explode('-', $data['attrk2'][0])[1];
-            for ($i=0; $i <count($data['attrv1']) ; $i++) { 
-                for ($j=0; $j <count($data['attrv2']) ; $j++) { 
-                    if ( ($data['attrv1'][$i] != '') && ($data['attrv2'][$j] != '') ) {
-                        return ['k'=>$k , 'v'=>$data['attrv1'] ,'k2'=>$k2 , 'v2'=>$data['attrv2'] ];
+        // dump($data);
+        if ( !empty($data['attrk1']) && !isset($data['attrk2']) && isset($data['attrv1']) && !isset($data['attrv2']) ) {
+            // dump($data);
+            if ( $data['attrk1'][0] != '' ) {
+
+                $k = explode('-', $data['attrk1'][0])[1];
+
+                for ($i=0; $i <count($data['attrv1']) ; $i++) { 
+                    if ($data['attrv1'][$i] != '') {
+                        return ['k'=>$k , 'v'=>$data['attrv1']];
                     }
                 }
-                
+            }
+            
+        }elseif(!empty($data['attrk1']) && !empty($data['attrk2']) && isset($data['attrv1']) && isset($data['attrv2']) ){
+            
+            if( ($data['attrk1'][0] != '') && ($data['attrk2'][0] != '') ){
+                $k = explode('-', $data['attrk1'][0])[1];
+                $k2 = explode('-', $data['attrk2'][0])[1];
+
+                for ($i=0; $i <count($data['attrv1']) ; $i++) { 
+                    for ($j=0; $j <count($data['attrv2']) ; $j++) { 
+                        if ( ($data['attrv1'][$i] != '') && ($data['attrv2'][$j] != '') ) {
+                            return ['k'=>$k , 'v'=>$data['attrv1'] ,'k2'=>$k2 , 'v2'=>$data['attrv2'] ];
+                        }
+                    }
+                    
+                }
+            }
+            
+            
+        }elseif(!empty($data['attrk1']) && !empty($data['attrk2']) && !isset($data['attrv1']) && !isset($data['attrv2'])){
+            return ['code'=>404 , 'msg'=>'数据错误'];
+        }elseif( !empty($data['attrk1']) && !empty($data['attrk2']) && isset($data['attrv1']) && !isset($data['attrv2']) ){
+            if ( $data['attrk1'][0] != '' ) {
+
+                $k = explode('-', $data['attrk1'][0])[1];
+
+                for ($i=0; $i <count($data['attrv1']) ; $i++) { 
+                    if ($data['attrv1'][$i] != '') {
+                        return ['k'=>$k , 'v'=>$data['attrv1']];
+                    }
+                }
+            }
+        }elseif( !empty($data['attrk1']) && !empty($data['attrk2']) && !isset($data['attrv1']) && isset($data['attrv2']) ){
+            if ( $data['attrk2'][0] != '' ) {
+
+                $k = explode('-', $data['attrk2'][0])[1];
+
+                for ($i=0; $i <count($data['attrv2']) ; $i++) { 
+                    if ($data['attrv2'][$i] != '') {
+                        return ['k'=>$k , 'v'=>$data['attrv2']];
+                    }
+                }
             }
         }
-        return $data;
+        
     }
 
 }

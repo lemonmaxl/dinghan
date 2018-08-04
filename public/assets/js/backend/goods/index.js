@@ -75,7 +75,7 @@ define(['jquery', 'bootstrap', 'backend', 'table', 'form'], function ($, undefin
                         html += '<option value="2-尺码">尺码</option>';
                             
                         html += '</select>';
-                        html += '<span style="margin-left:100px"><a href="javascript:;" style="font-size:16px;">删除规格</a></span>';
+                        html += '<span style="margin-left:100px;font-size:16px"><a href="javascript:;" onclick="delFormatType(this)">删除规格</a></span>';
                         html += '</div>';
                         
                     // 把新的下拉框添加到
@@ -129,12 +129,21 @@ function addMoreFormat(select){
 
 };
 
+// 添加更多属性
 function addMoreFormatAttr(btn , flag){
     var input = '<input class="form-control" name="attrv'+flag+'[]" flag="'+flag+'" type="text" value="" style="width:100px;margin-top:10px;margin-left:10px" onBlur="sendDataTo(this)">';
-    $(btn).before(input);
+    if ($(btn).prev().val() == '') {
+        Toastr.warning('规格名称不能为空');
+    }else{
+        $(btn).prev().attr('readonly' , 'readonly');
+        $(btn).prev().after('<a href="#" style="font-size:18px;color:red" onclick="delFormatAttr(this)"><i class="fa fa-times-circle"></i></a>');
+        $(btn).before(input);
+    }
+    
 };
 
 
+// 生成表格
 function sendDataTo(input){
     // var attrv_name = $(input).attr('name'); // name值
     // var attrv_flag = $(input).attr('flag'); // flag值
@@ -148,26 +157,27 @@ function sendDataTo(input){
 
     // var all_form_data = $( "form" ).serialize();
     // alert(attrv_v);
-    // $(".format_type input[type='text']").each(function(){
-        // alert($(this).val());
+    
+    // if($(input).val() != ''){
+
         $.ajax({
             url: '/admin/goods/index/getFormatInfo',
             type: 'POST',
             dataType: 'json',
-            data: $( "form" ).serialize(),
+            data: serializeNotNull($( "form" ).serialize()),
             success : function(data){
-                console.log(JSON.stringify(data));
-
+                // console.log(JSON.stringify(data));
+                if(data.code != 404){
                 var html = '';
                     html += '<table id="table" class="table table-striped table-bordered table-hover table-nowrap" data-operate-edit="1" data-operate-del="1" width="100%">';
                     html += '<tr>';
-                    html += '<td>'+data.k+'</td>';
+                    html += '<th>'+data.k+'</th>';
                     if(data.k2){
-                        html += '<td>'+data.k2+'</td>';
+                        html += '<th>'+data.k2+'</th>';
                     }
-                    html += '<td>库存</td>';
-                    html += '<td>价格</td>';
-                    html += '<td>编码</td>';
+                    html += '<th>库存</th>';
+                    html += '<th>价格</th>';
+                    html += '<th>编码</th>';
                     html += '</tr>';
 
                     if (data.v2) {
@@ -196,18 +206,43 @@ function sendDataTo(input){
                         }
                     }
                     
-                    
-                    
-                    
                     html += '</table>';
 
-                $("#SKU-table").html('');
-                $("#SKU-table").append(html);
+                    $("#SKU-table").html('');
+                    $("#SKU-table").append(html);
+                }else{
+                    $("#SKU-table").html('');
+                }
             }
         })
         
-        
-    // });
+    // }   
+    
    
     
 };
+
+// 删除规格
+function delFormatType(btn) {
+    var flag = $(btn).parent().prev().attr('flag');
+    if (flag == 1) {
+        $(".btn-append").nextAll().remove();
+        $("#SKU-table").html('');
+    }else{
+        $(btn).parent().parent().remove();
+        sendDataTo();
+    }
+    // alert(flag);
+}
+
+function delFormatAttr(btn){
+    $(btn).prev().remove();
+    $(btn).remove();
+    sendDataTo();
+}
+
+
+// 过滤序列化后的空值
+function serializeNotNull(serStr){
+    return serStr.split("&").filter(function(str){return !str.endsWith("=")}).join("&");
+}
