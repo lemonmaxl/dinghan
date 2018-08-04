@@ -1,0 +1,52 @@
+[ 2018-07-31T16:06:51+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000156s ]
+[ info ] [ LOG ] INIT File
+[ 2018-07-31T16:06:51+08:00 ][ info ] [ CACHE ] INIT File
+[ 2018-07-31T16:06:51+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003290s ]
+[ 2018-07-31T16:07:33+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000157s ]
+[ info ] [ LOG ] INIT File
+[ 2018-07-31T16:07:33+08:00 ][ info ] [ CACHE ] INIT File
+[ 2018-07-31T16:07:33+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003608s ]
+[ 2018-07-31T16:07:33+08:00 ][ info ] [ DB ] INIT mysql
+[ 2018-07-31T16:07:33+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001402s ] mysql:host=127.0.0.1;dbname=fastadmin;charset=utf8
+[ 2018-07-31T16:07:33+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'test' [ RunTime:0.000721s ]
+[ 2018-07-31T16:07:33+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_test' [ RunTime:0.001665s ]
+[ 2018-07-31T16:07:33+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'fastadmin' AND table_name = 'fa_test' ORDER BY ORDINAL_POSITION [ RunTime:0.001058s ]
+[ 2018-07-31T16:11:35+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000155s ]
+[ info ] [ LOG ] INIT File
+[ 2018-07-31T16:11:35+08:00 ][ info ] [ CACHE ] INIT File
+[ 2018-07-31T16:11:35+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003563s ]
+[ 2018-07-31T16:11:35+08:00 ][ info ] [ DB ] INIT mysql
+[ 2018-07-31T16:11:35+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001305s ] mysql:host=127.0.0.1;dbname=fastadmin;charset=utf8
+[ 2018-07-31T16:11:35+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'test' [ RunTime:0.000723s ]
+[ 2018-07-31T16:11:35+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_test' [ RunTime:0.001723s ]
+[ 2018-07-31T16:13:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000155s ]
+[ info ] [ LOG ] INIT File
+[ 2018-07-31T16:13:53+08:00 ][ info ] [ CACHE ] INIT File
+[ 2018-07-31T16:13:53+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003467s ]
+[ 2018-07-31T16:13:53+08:00 ][ info ] [ DB ] INIT mysql
+[ 2018-07-31T16:13:53+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001370s ] mysql:host=127.0.0.1;dbname=fastadmin;charset=utf8
+[ 2018-07-31T16:13:53+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'test' [ RunTime:0.000681s ]
+[ 2018-07-31T16:13:53+08:00 ][ sql ] [ SQL ] SHOW TABLE STATUS LIKE 'fa_test' [ RunTime:0.001606s ]
+[ 2018-07-31T16:13:53+08:00 ][ sql ] [ SQL ] SELECT * FROM `information_schema`.`columns` WHERE TABLE_SCHEMA = 'fastadmin' AND table_name = 'fa_test' ORDER BY ORDINAL_POSITION [ RunTime:0.001112s ]
+[ 2018-07-31T16:17:43+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.000155s ]
+[ info ] [ LOG ] INIT File
+[ 2018-07-31T16:17:43+08:00 ][ info ] [ CACHE ] INIT File
+[ 2018-07-31T16:17:43+08:00 ][ info ] [ BEHAVIOR ] Run Closure @app_init [ RunTime:0.003510s ]
+[ 2018-07-31T16:17:43+08:00 ][ info ] [ DB ] INIT mysql
+[ 2018-07-31T16:17:43+08:00 ][ info ] [ LANG ] C:\PHP\wamp64\www\fastadmin\application\admin\lang/zh-cn.php
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ DB ] CONNECT:[ UseTime:0.001200s ] mysql:host=127.0.0.1;dbname=fastadmin;charset=utf8
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SHOW COLUMNS FROM `fa_auth_rule` [ RunTime:0.000838s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'mytest' LIMIT 1 [ RunTime:0.000406s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (0 , 'mytest' , 'mytest' , 'fa fa-list' , '' , 1 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.002448s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT * FROM `fa_auth_rule` WHERE  `name` = 'mytest/test' LIMIT 1 [ RunTime:0.000373s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`pid` , `name` , `title` , `icon` , `remark` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (139 , 'mytest/test' , '测试管理' , 'fa fa-circle-o' , '' , 1 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.002027s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'mytest/test/index' LIMIT 1 [ RunTime:0.000299s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'mytest/test/add' LIMIT 1 [ RunTime:0.000289s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'mytest/test/edit' LIMIT 1 [ RunTime:0.000283s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'mytest/test/del' LIMIT 1 [ RunTime:0.000262s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] SELECT `id` FROM `fa_auth_rule` WHERE  `name` = 'mytest/test/multi' LIMIT 1 [ RunTime:0.000247s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 140 , 'mytest/test/index' , 'fa fa-circle-o' , '查看' , 0 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.000306s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 140 , 'mytest/test/add' , 'fa fa-circle-o' , '添加' , 0 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.000135s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 140 , 'mytest/test/edit' , 'fa fa-circle-o' , '编辑' , 0 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.000130s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 140 , 'mytest/test/del' , 'fa fa-circle-o' , '删除' , 0 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.000155s ]
+[ 2018-07-31T16:17:43+08:00 ][ sql ] [ SQL ] INSERT INTO `fa_auth_rule` (`id` , `pid` , `name` , `icon` , `title` , `ismenu` , `status` , `createtime` , `updatetime`) VALUES (NULL , 140 , 'mytest/test/multi' , 'fa fa-circle-o' , '批量更新' , 0 , 'normal' , 1533025063 , 1533025063) [ RunTime:0.000157s ]

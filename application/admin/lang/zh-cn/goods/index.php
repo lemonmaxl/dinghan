@@ -1,0 +1,26 @@
+<?php
+
+return [
+    'Id'  =>  '商品主键Id',
+    'Title'  =>  '商品名称',
+    'Category_id'  =>  '所属分类',
+    'Type'  =>  '商品类型',
+    'Type 1'  =>  '实体商品',
+    'Type 2'  =>  '虚拟商品',
+    'Pic'  =>  '商品主图',
+    'Pics'  =>  '多主图轮播图',
+    'Sale_price'  =>  '现价',
+    'Market_price'  =>  '市场价',
+    'Cost_price'  =>  '成本价',
+    'Description'  =>  '商品描述',
+    'Weight'  =>  '重量',
+    'Last_num'  =>  '库存',
+    'Is_sale'  =>  '是否上架',
+    'Is_sale 1'  =>  '是',
+    'Is_sale 2'  =>  '否',
+    'Sort'  =>  '排序',
+    'Createtime'  =>  '创建时间',
+    'Updatetime'  =>  '更新时间',
+    'Format type'  =>  '商品规格',
+    'Append format'  =>  '添加规格',
+];
